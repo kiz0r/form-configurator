@@ -1,7 +1,8 @@
-import type { IInput, IFormButton } from '@/shared/types';
+import type { IFormButton } from './form-button.interface';
+import type { IField } from './form-field.interface';
 
 export interface IFormConfig {
   title: string;
-  items: IInput[];
+  items: IField[];
   buttons: IFormButton[];
 }

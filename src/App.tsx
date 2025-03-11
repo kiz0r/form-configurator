@@ -5,7 +5,9 @@ import { FormConfigurator } from './widgets/form-configurator';
 function App() {
   return (
     <FormConfigProvider>
-      <FormConfigurator />
+      <main className="w-full py-5 flex flex-col items-center">
+        <FormConfigurator />
+      </main>
       <Toaster />
     </FormConfigProvider>
   );

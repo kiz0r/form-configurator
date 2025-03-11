@@ -3,7 +3,7 @@
 @custom-variant dark (&:is(.dark *));
 
 #root {
-  @apply bg-background py-10 text-foreground flex min-h-svh w-full items-center flex-col;
+  @apply bg-background text-foreground min-h-svh w-full;
 }
 
 :root {

@@ -10,24 +10,11 @@ import {
   FormItem,
   Textarea,
 } from '@/shared/ui';
-import type { IFormButton } from '@/shared/types';
 import { useFormConfigEditorForm } from '../model';
 import { useEffect, useMemo } from 'react';
 import { useFormConfig, FormButtons } from '@/entities/form-config';
 import { DEFAULT_CONFIG_EDITOR_DATA } from '../model';
-
-const CONFIG_INPUT_FORM_BUTTONS: IFormButton[] = [
-  {
-    title: 'Clear',
-    type: 'reset',
-    variant: 'ghost',
-  },
-  {
-    title: 'Generate',
-    type: 'submit',
-    variant: 'default',
-  },
-];
+import { CONFIG_INPUT_FORM_BUTTONS } from '../model/constants/editor-buttons-data';
 
 const FormConfigEditor = () => {
   const { configData } = useFormConfig();
@@ -70,7 +57,7 @@ const FormConfigEditor = () => {
                   <FormControl>
                     <Textarea
                       className="font-mono text-sm"
-                      rows={10}
+                      rows={15}
                       placeholder="Enter your JSON config here"
                       {...field}
                     />

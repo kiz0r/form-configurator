@@ -11,7 +11,7 @@ interface IOption {
   value: string;
 }
 
-export interface IInput {
+export interface IField {
   label: string;
   name: string;
   type: FieldType;

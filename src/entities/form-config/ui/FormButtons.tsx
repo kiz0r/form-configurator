@@ -1,6 +1,6 @@
 import type { FC } from 'react';
-import type { IFormButton } from '@/shared/types';
 import { Button } from '@/shared/ui';
+import type { IFormButton } from '../types';
 
 interface FormButtonsProps {
   items: IFormButton[];
