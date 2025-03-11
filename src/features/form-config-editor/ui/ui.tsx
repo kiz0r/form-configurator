@@ -11,11 +11,10 @@ import {
   Textarea,
 } from '@/shared/ui';
 import type { IFormButton } from '@/shared/types';
-import FormButtons from '@/components/FormButtons';
-import placeholder from '@/components/ConfigInputForm/placeholder.json';
 import { useFormConfigEditorForm } from '../model';
 import { useEffect, useMemo } from 'react';
-import { useFormConfig } from '@/entities/form-config';
+import { useFormConfig, FormButtons } from '@/entities/form-config';
+import { DEFAULT_CONFIG_EDITOR_DATA } from '../model';
 
 const CONFIG_INPUT_FORM_BUTTONS: IFormButton[] = [
   {
@@ -34,7 +33,7 @@ const FormConfigEditor = () => {
   const { configData } = useFormConfig();
 
   const defaultConfig = useMemo(
-    () => JSON.stringify(configData || placeholder, null, 2),
+    () => JSON.stringify(configData || DEFAULT_CONFIG_EDITOR_DATA, null, 2),
     [configData]
   );
 

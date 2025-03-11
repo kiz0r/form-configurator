@@ -1,1 +1,1 @@
-export * from './form-configurator-content';
+export * from './constants';

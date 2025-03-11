@@ -17,8 +17,11 @@ import {
   FormLabel,
   FormMessage,
 } from '@/shared/ui';
-import { NoConfigData, useFormConfig } from '@/entities/form-config';
-import FormButtons from '@/components/FormButtons';
+import {
+  NoConfigData,
+  FormButtons,
+  useFormConfig,
+} from '@/entities/form-config';
 
 const FormConfigOutput = () => {
   const { configData } = useFormConfig();

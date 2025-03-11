@@ -6,9 +6,8 @@ import {
 import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
-
-import placeholder from '@/components/ConfigInputForm/placeholder.json';
 import { useFormConfig } from '@/entities/form-config';
+import { DEFAULT_CONFIG_EDITOR_DATA } from '../constants';
 
 export function useFormConfigEditorForm(
   defaultValues: FormConfigEditorSchemaType
@@ -22,7 +21,7 @@ export function useFormConfigEditorForm(
   });
 
   const onReset = () => {
-    form.reset({ config: JSON.stringify(placeholder, null, 2) });
+    form.reset({ config: JSON.stringify(DEFAULT_CONFIG_EDITOR_DATA, null, 2) });
   };
 
   const onSubmit = (data: FormConfigEditorSchemaType) => {
