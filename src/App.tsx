@@ -1,13 +1,13 @@
-import { FormGenerator } from '@/widgets';
-import { Toaster } from './components/ui';
-import { ConfigProvider } from './context';
+import { Toaster } from '@/shared/ui';
+import { FormConfigProvider } from '@/entities/form-config';
+import { FormConfigurator } from './widgets/form-configurator';
 
 function App() {
   return (
-    <ConfigProvider>
-      <FormGenerator />
+    <FormConfigProvider>
+      <FormConfigurator />
       <Toaster />
-    </ConfigProvider>
+    </FormConfigProvider>
   );
 }
 
