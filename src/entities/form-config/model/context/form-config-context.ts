@@ -1,9 +1,9 @@
 import { createContext } from 'react';
-import { IFormConfig } from '../../types';
+import type { FormConfigSchemaType } from '../validation';
 
 interface FormConfigContextType {
-  configData: IFormConfig | null;
-  setConfigData: (data: IFormConfig) => void;
+  configData: FormConfigSchemaType | null;
+  setConfigData: (data: FormConfigSchemaType) => void;
 }
 
 export const FormConfigContext = createContext<

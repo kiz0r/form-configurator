@@ -21,11 +21,12 @@ import {
   NoConfigData,
   FormButtons,
   useFormConfig,
+  FIELD_TYPES,
 } from '@/entities/form-config';
 
 const FormConfigOutput = () => {
   const { configData } = useFormConfig();
-  const { form, onSubmit } = useFormConfigOutputForm();
+  const { form, onSubmit, onReset } = useFormConfigOutputForm();
 
   if (!configData) {
     return <NoConfigData />;
@@ -41,6 +42,7 @@ const FormConfigOutput = () => {
       <CardContent>
         <Form {...form}>
           <form
+            onReset={onReset}
             onSubmit={form.handleSubmit(onSubmit)}
             className="flex flex-col gap-5"
           >
@@ -53,9 +55,9 @@ const FormConfigOutput = () => {
                     name={name}
                     render={({ field }) => {
                       switch (type) {
-                        case 'number':
-                        case 'text':
-                        case 'date':
+                        case FIELD_TYPES.NUMBER:
+                        case FIELD_TYPES.TEXT:
+                        case FIELD_TYPES.DATE:
                           return (
                             <FormItem>
                               <FormLabel>{label}</FormLabel>
@@ -69,7 +71,7 @@ const FormConfigOutput = () => {
                               <FormMessage />
                             </FormItem>
                           );
-                        case 'textarea':
+                        case FIELD_TYPES.TEXTAREA:
                           return (
                             <FormItem>
                               <FormLabel>{label}</FormLabel>
@@ -82,7 +84,7 @@ const FormConfigOutput = () => {
                               <FormMessage />
                             </FormItem>
                           );
-                        case 'checkbox':
+                        case FIELD_TYPES.BOOLEAN:
                           return (
                             <FormItem className="flex items-center gap-2">
                               <FormControl>
@@ -95,14 +97,14 @@ const FormConfigOutput = () => {
                               <FormLabel>{label}</FormLabel>
                             </FormItem>
                           );
-                        case 'radio':
+                        case FIELD_TYPES.ENUM:
                           return (
                             <FormItem className="flex flex-col gap-2">
-                              <FormLabel htmlFor={name}>{label}</FormLabel>
+                              <FormLabel>{label}</FormLabel>
                               <FormControl>
                                 <RadioGroup
                                   onValueChange={field.onChange}
-                                  value={field.value || ''}
+                                  value={field.value}
                                   className="ml-4 flex flex-col gap-2"
                                 >
                                   {options?.map(({ value, label }, idx) => (
@@ -111,9 +113,14 @@ const FormConfigOutput = () => {
                                       key={`${value}-${idx}`}
                                     >
                                       <FormControl>
-                                        <RadioGroupItem value={value} />
+                                        <RadioGroupItem
+                                          id={`${field.name}-${value}`}
+                                          value={value}
+                                        />
                                       </FormControl>
-                                      <Label>{label}</Label>
+                                      <Label htmlFor={`${field.name}-${value}`}>
+                                        {label}
+                                      </Label>
                                     </FormItem>
                                   ))}
                                 </RadioGroup>

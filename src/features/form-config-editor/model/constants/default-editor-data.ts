@@ -1,7 +1,7 @@
-import { IFormConfig } from '@/entities/form-config';
+import { FormConfigSchemaType } from '@/entities/form-config';
 
-export const DEFAULT_CONFIG_EDITOR_DATA: IFormConfig = {
-  title: 'Demo form title',
+export const DEFAULT_CONFIG_EDITOR_DATA: FormConfigSchemaType = {
+  title: 'Demo form',
   items: [
     {
       label: 'Your full name',
@@ -21,7 +21,7 @@ export const DEFAULT_CONFIG_EDITOR_DATA: IFormConfig = {
       name: 'experience',
     },
     {
-      type: 'radio',
+      type: 'enum',
       name: 'meetingType',
       label: 'Choose the type of meeting',
       options: [
@@ -36,14 +36,14 @@ export const DEFAULT_CONFIG_EDITOR_DATA: IFormConfig = {
       ],
     },
     {
-      label: 'Your message',
+      label: 'Cover Letter',
       type: 'textarea',
-      placeholder: 'Enter your message',
-      name: 'message',
+      placeholder: 'Enter your cover letter here',
+      name: 'coverLetter',
     },
     {
       label: 'I agree with the terms and conditions',
-      type: 'checkbox',
+      type: 'boolean',
       name: 'terms',
     },
   ],

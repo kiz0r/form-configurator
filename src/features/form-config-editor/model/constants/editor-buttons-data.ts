@@ -1,6 +1,6 @@
-import type { IFormButton } from '@/entities/form-config';
+import { FormConfigButtonSchemaType } from '@/entities/form-config';
 
-export const CONFIG_INPUT_FORM_BUTTONS: IFormButton[] = [
+export const CONFIG_INPUT_FORM_BUTTONS: FormConfigButtonSchemaType[] = [
   {
     title: 'Clear',
     type: 'reset',

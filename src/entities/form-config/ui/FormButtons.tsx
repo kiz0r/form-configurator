@@ -1,9 +1,9 @@
 import type { FC } from 'react';
 import { Button } from '@/shared/ui';
-import type { IFormButton } from '../types';
+import type { FormConfigButtonSchemaType } from '../model';
 
 interface FormButtonsProps {
-  items: IFormButton[];
+  items: FormConfigButtonSchemaType[];
 }
 
 const FormButtons: FC<FormButtonsProps> = ({ items }) => {

@@ -1,4 +1,3 @@
-import { validateJson } from '@/shared/lib';
 import {
   FORM_CONFIG_EDITOR_SCHEMA,
   type FormConfigEditorSchemaType,
@@ -7,6 +6,7 @@ import { zodResolver } from '@hookform/resolvers/zod';
 import { useForm } from 'react-hook-form';
 import { toast } from 'sonner';
 import { useFormConfig } from '@/entities/form-config';
+import { validateConfigJson } from '../lib';
 
 export function useFormConfigEditorForm(
   defaultValues: FormConfigEditorSchemaType
@@ -24,13 +24,11 @@ export function useFormConfigEditorForm(
   };
 
   const onSubmit = (data: FormConfigEditorSchemaType) => {
-    const configObj = validateJson(data.config);
+    const validatedConfig = validateConfigJson(data.config);
 
-    if (!configObj) {
-      return;
-    }
+    if (!validatedConfig) return;
 
-    setConfigData(configObj);
+    setConfigData(validatedConfig);
     toast.success('The form has been generated!');
   };
 
